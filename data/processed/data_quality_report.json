@@ -1,0 +1,123 @@
+{
+  "preparation_timestamp": "2026-10-26T23:20:32.848845",
+  "datasets": {
+    "cleaned_ev_sales": {
+      "initial_rows": 46598,
+      "final_rows": 46598,
+      "duplicates_removed": 0,
+      "excluded_invalid_dates": 0,
+      "areas_count": 61,
+      "countries_count": 59,
+      "year_min": 2005,
+      "year_max": 2026,
+      "null_counts": {
+        "area": 0,
+        "iso_3_code": 1005,
+        "area_type": 0,
+        "date": 0,
+        "data_frequency": 0,
+        "drivetrain": 0,
+        "is_aggregate_drivetrain": 0,
+        "registrations": 388,
+        "registrations_yoy_change": 5584,
+        "registrations_yoy_change_pct": 8816,
+        "share_of_registrations_pct": 394,
+        "ytd_registrations": 0,
+        "ytd_share_pct": 0,
+        "rolling_12m_registrations": 4821,
+        "rolling_12m_share_pct": 4821,
+        "continent": 1005,
+        "ember_region": 1005,
+        "is_eu_member": 0,
+        "is_oecd_member": 0,
+        "is_g20_member": 0,
+        "is_g7_member": 0,
+        "is_asean_member": 0,
+        "year": 0,
+        "month": 0,
+        "is_country": 0
+      }
+    },
+    "cleaned_fleet_impact": {
+      "initial_rows": 61,
+      "final_rows": 61,
+      "countries_covered": 59,
+      "global_fleet_vehicles_reported": 90557041.0,
+      "null_counts": {
+        "area": 0,
+        "iso_3_code": 2,
+        "area_type": 0,
+        "latest_available_date": 0,
+        "ev_fleet_vehicles": 0,
+        "electricity_demand_gwh_yr": 0,
+        "oil_displaced_kbd_yr": 0,
+        "oil_displaced_usd_million_yr": 0,
+        "brent_price_usd": 0,
+        "is_country": 0
+      }
+    },
+    "cleaned_vehicle_specs": {
+      "raw_total_models": 281,
+      "ev_phev_models_retained": 166,
+      "duplicates_removed": 0,
+      "distinct_brands": 50,
+      "body_categories_distribution": {
+        "SUV / Crossover": 103,
+        "Hatchback": 29,
+        "Sedan": 19,
+        "Station Wagon": 6,
+        "Coupe": 4,
+        "MPV / Minivan": 4,
+        "Convertible": 1
+      },
+      "drivetrain_class_distribution": {
+        "Pure BEV": 131,
+        "Plug-in Hybrid / Multi-fuel": 35
+      },
+      "avg_battery_capacity_kwh": 62.92,
+      "avg_range_wltp_km": 433.73,
+      "documented_high_performance_outliers": [
+        {
+          "brand": "BMW",
+          "model_name": "iX3",
+          "range_wltp_km": 805.0,
+          "battery_capacity_kwh": 108.7
+        },
+        {
+          "brand": "Mercedes-Benz",
+          "model_name": "CLA",
+          "range_wltp_km": 792.0,
+          "battery_capacity_kwh": 85.0
+        },
+        {
+          "brand": "Mercedes-Benz",
+          "model_name": "EQS",
+          "range_wltp_km": 822.0,
+          "battery_capacity_kwh": 118.0
+        }
+      ],
+      "null_counts": {
+        "model_id": 0,
+        "brand": 0,
+        "model_name": 0,
+        "generation": 0,
+        "raw_body_style": 0,
+        "fuel_type": 0,
+        "release_year": 0,
+        "power_hp": 1,
+        "range_wltp_km": 17,
+        "battery_capacity_kwh": 7,
+        "fast_charge_dc_kw": 35,
+        "consumption_kwh_100km": 60,
+        "towing_capacity_kg": 49,
+        "cargo_volume_liters": 10,
+        "seats": 0,
+        "doors": 0,
+        "body_category": 0,
+        "efficiency_km_per_kwh": 17,
+        "has_fast_charging": 0,
+        "drivetrain_class": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,167 @@
+model_id,brand,model_name,generation,raw_body_style,fuel_type,release_year,power_hp,range_wltp_km,battery_capacity_kwh,fast_charge_dc_kw,consumption_kwh_100km,towing_capacity_kg,cargo_volume_liters,seats,doors,body_category,efficiency_km_per_kwh,has_fast_charging,drivetrain_class
+alfa-romeo-junior-2024,Alfa Romeo,Junior,"I (2024+, Elettrica 156)",SUV,ev|hybride,2024,156.0,410.0,54.0,100.0,15.5,0.0,400.0,5,5,SUV / Crossover,7.59,True,Plug-in Hybrid / Multi-fuel
+alfa-romeo-tonale-phev-2024,Alfa Romeo,Tonale,"(2022-, Plug-in Hybrid Q4)",SUV,phev,2022,280.0,69.0,15.5,0.0,,1500.0,385.0,5,5,SUV / Crossover,4.45,False,Pure BEV
+alpine-a290-2024,Alpine,A290,(2024+),Hatchback,ev,2024,220.0,380.0,52.0,100.0,15.6,,326.0,5,5,Hatchback,7.31,True,Pure BEV
+audi-a6-etron-2025,Audi,A6 e-tron,"Sportback (2024-, PPE-platform)",Liftback,ev,2024,326.0,627.0,75.8,225.0,13.6,2100.0,502.0,5,5,Hatchback,8.27,True,Pure BEV
+audi-etron-gt-2024,Audi,e-tron GT,F83 facelift (2024+),Sedan,ev,2021,503.0,609.0,105.0,320.0,19.6,,405.0,4,4,Sedan,5.8,True,Pure BEV
+audi-q4-etron-2024,Audi,Q4 e-tron,2024 (facelift),SUV,ev,2021,286.0,530.0,77.0,175.0,16.5,1200.0,520.0,5,5,SUV / Crossover,6.88,True,Pure BEV
+audi-q6-etron-2024,Audi,Q6 e-tron,"C1 (2024-, PPE-platform)",SUV,ev,2024,387.0,625.0,94.9,270.0,17.0,2400.0,526.0,5,5,SUV / Crossover,6.59,True,Pure BEV
+audi-q7-2024,Audi,Q7,4M facelift II (2024+),SUV,benzine|diesel|phev,2015,286.0,,22.0,,,3500.0,865.0,7,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+audi-q8-etron-2024,Audi,Q8 e-tron,GE facelift (2023+),SUV,ev,2023,408.0,600.0,114.0,170.0,20.4,1800.0,569.0,5,5,SUV / Crossover,5.26,True,Pure BEV
+bentley-bentayga-2024,Bentley,Bentayga,"(II, 2020+)",SUV,phev|benzine,2020,462.0,50.0,18.0,,,,479.0,5,5,SUV / Crossover,2.78,False,Plug-in Hybrid / Multi-fuel
+bentley-continental-gt-2024,Bentley,Continental GT,"(IV, 2024+, PHEV)",Coupe,phev,2024,782.0,81.0,25.9,,,,358.0,4,2,Coupe,3.13,False,Pure BEV
+bmw-i4-2024,BMW,i4,G26 eDrive40 (2024),Liftback,ev,2021,340.0,590.0,81.0,205.0,15.0,1600.0,470.0,5,5,Hatchback,7.28,True,Pure BEV
+bmw-i5-2024,BMW,i5,G60 eDrive40 (2024),Sedan,ev,2023,340.0,582.0,81.2,205.0,15.9,1500.0,490.0,5,5,Sedan,7.17,True,Pure BEV
+bmw-i7-2024,BMW,i7,G70 (2022+),Sedan,ev,2022,544.0,625.0,105.7,195.0,18.4,2000.0,500.0,5,4,Sedan,5.91,True,Pure BEV
+bmw-ix-2024,BMW,iX,I20 (2021+),SUV,ev,2021,408.0,602.0,94.8,175.0,17.8,2500.0,500.0,5,5,SUV / Crossover,6.35,True,Pure BEV
+bmw-ix1-2024,BMW,iX1,U11 xDrive30 (2024),SUV,ev,2022,313.0,440.0,65.0,130.0,17.0,1200.0,490.0,5,5,SUV / Crossover,6.77,True,Pure BEV
+bmw-ix2-2024,BMW,iX2,U10 xDrive30 (2024-),SUV,ev,2024,313.0,449.0,64.7,130.0,16.3,1200.0,525.0,5,5,SUV / Crossover,6.94,True,Pure BEV
+bmw-ix3-2025,BMW,iX3,"NA5 (2025-, Neue Klasse)",SUV,ev,2025,469.0,805.0,108.7,400.0,15.1,2000.0,520.0,5,5,SUV / Crossover,7.41,True,Pure BEV
+bmw-x5-2024,BMW,X5,G05 LCI (2023+),SUV,benzine|diesel|phev,2018,298.0,,,,,3500.0,650.0,5,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+byd-atto-2-2025,BYD,Atto 2,"EV (2025+, EU launch)",SUV,ev,2025,174.0,312.0,45.1,65.0,,,400.0,5,5,SUV / Crossover,6.92,True,Pure BEV
+byd-atto-3-2024,BYD,Atto 3,"I (Yuan Plus, 2022+)",SUV,ev,2022,204.0,420.0,60.5,88.0,16.0,750.0,440.0,5,5,SUV / Crossover,6.94,True,Pure BEV
+byd-dolphin-2024,BYD,Dolphin,"I (EA1, 2021+; EU-uitvoering 2023+)",hatchback,ev,2023,204.0,427.0,60.4,88.0,15.9,,345.0,5,5,Hatchback,7.07,True,Pure BEV
+byd-dolphin-surf-2025,BYD,Dolphin Surf,"I (EU-uitvoering van de BYD Seagull, 2025+)",hatchback,ev,2025,88.0,220.0,30.0,65.0,15.5,0.0,308.0,4,5,Hatchback,7.33,True,Pure BEV
+byd-han-2024,BYD,Han,"EV (2023+, EU launch)",Sedan,ev,2023,517.0,521.0,85.4,120.0,18.0,,410.0,5,4,Sedan,6.1,True,Pure BEV
+byd-seal-2024,BYD,Seal,Design RWD (2024),sedan,ev,2023,313.0,570.0,82.5,150.0,16.6,0.0,400.0,5,4,Sedan,6.91,True,Pure BEV
+byd-seal-u-dm-i-2024,BYD,Seal U DM-i,"DM-i PHEV (2024+, EU)",SUV,phev,2024,215.0,,18.3,18.0,,,425.0,5,5,SUV / Crossover,,True,Pure BEV
+byd-sealion-7-2025,BYD,Sealion 7,I (2024+),SUV,ev,2024,530.0,502.0,91.3,230.0,20.4,,520.0,5,5,SUV / Crossover,5.5,True,Pure BEV
+byd-tang-2024,BYD,Tang,"2e gen facelift (2024+, EU)",SUV,ev,2024,517.0,530.0,108.8,190.0,,1500.0,235.0,7,5,SUV / Crossover,4.87,True,Pure BEV
+citroen-ami-2024,Citroën,Ami,"(II facelift 2024, L7e quadricycle)",Hatchback,ev,2020,8.0,75.0,5.5,,,,63.0,2,2,Hatchback,13.64,False,Pure BEV
+citroen-berlingo-2024,Citroën,Berlingo,"(III facelift / ë-Berlingo, 2024+)",MPV,benzine|diesel|ev,2018,136.0,320.0,50.0,,,750.0,775.0,5,5,MPV / Minivan,6.4,False,Plug-in Hybrid / Multi-fuel
+citroen-c3-aircross-iii-2024,Citroën,C3 Aircross,"(III, 2024+)",SUV,benzine|hybride|ev,2024,100.0,,,,,1200.0,460.0,5,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+citroen-c5-x-2024,Citroën,C5 X,"(I, 2022+, PHEV 225 / Hybrid 145)",Sedan,phev|hybride|benzine,2022,225.0,63.0,12.4,,,1300.0,545.0,5,5,Sedan,5.08,False,Plug-in Hybrid / Multi-fuel
+citroen-c5-aircross-2025,Citroën,C5 Aircross,II ë-C5 Aircross 210 (2025+),SUV,ev|phev|hybride,2025,210.0,520.0,73.0,160.0,,1200.0,565.0,5,5,SUV / Crossover,7.12,True,Plug-in Hybrid / Multi-fuel
+citroen-e-c3-2024,Citroën,ë-C3,"IV (BEV, 44 kWh)",Hatchback,ev,2024,113.0,320.0,44.0,100.0,,0.0,310.0,5,5,Hatchback,7.27,True,Pure BEV
+cupra-born-2024,Cupra,Born,K1 (2021-),Hatchback,ev,2021,204.0,420.0,58.0,120.0,16.0,1200.0,385.0,5,5,Hatchback,7.24,True,Pure BEV
+cupra-formentor-2024,Cupra,Formentor,"I facelift (KM, 2024+, 1.5 eTSI 150)",SUV,benzine|phev,2020,150.0,,,,,1800.0,420.0,5,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+cupra-tavascan-2024,Cupra,Tavascan,"1e (2024-, MEB-platform)",SUV-coupé,ev,2024,286.0,568.0,77.0,135.0,15.1,1000.0,540.0,5,5,SUV / Crossover,7.38,True,Pure BEV
+cupra-terramar-2025,Cupra,Terramar,"1e (2024-, MQB Evo)",SUV,benzine|phev,2024,150.0,,,,,,540.0,5,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+dacia-spring-2024,Dacia,Spring,Electric 65 (facelift 2024),Hatchback,ev,2021,65.0,225.0,26.8,30.0,14.6,0.0,308.0,4,5,Hatchback,8.4,True,Pure BEV
+ferrari-296-gtb-2024,Ferrari,296 GTB,"(2022+, PHEV)",Coupe,phev,2022,830.0,25.0,7.45,,,,201.0,2,2,Coupe,3.36,False,Pure BEV
+fiat-500e-2024,Fiat,500e,"III (2020-, 42 kWh)",Hatchback,ev,2020,118.0,320.0,42.0,85.0,14.6,0.0,185.0,4,3,Hatchback,7.62,True,Pure BEV
+fiat-600e-2024,Fiat,600e,EV (2023+),Crossover,ev,2023,156.0,409.0,54.0,100.0,15.4,,360.0,5,5,SUV / Crossover,7.57,True,Pure BEV
+fiat-panda-2024,Fiat,Grande Panda,"I (2024+, Electric 44 kWh)",Hatchback,ev|hybride,2024,113.0,320.0,44.0,100.0,16.5,0.0,361.0,5,5,Hatchback,7.27,True,Plug-in Hybrid / Multi-fuel
+ford-capri-ev-2024,Ford,Capri,"EV Extended Range RWD (2024-, MEB)",SUV,ev,2024,286.0,627.0,77.0,135.0,13.3,1000.0,572.0,5,5,SUV / Crossover,8.14,True,Pure BEV
+ford-explorer-ev-2024,Ford,Explorer,"EV Extended Range RWD (2024-, MEB)",SUV,ev,2024,286.0,522.0,77.0,170.0,15.7,1400.0,450.0,5,5,SUV / Crossover,6.78,True,Pure BEV
+ford-kuga-phev-2024,Ford,Kuga PHEV,"(III facelift, 2024+)",SUV,phev,2024,225.0,69.0,14.4,,,,411.0,5,5,SUV / Crossover,4.79,False,Pure BEV
+ford-mustang-mach-e-2024,Ford,Mustang Mach-E,"(2020+, facelift)",SUV,ev,2020,294.0,600.0,91.0,150.0,,,402.0,5,5,SUV / Crossover,6.59,True,Pure BEV
+genesis-electrified-g80-2024,Genesis,Electrified G80,"(2021+, E-GMP)",Sedan,ev,2021,370.0,520.0,87.2,240.0,,,354.0,5,4,Sedan,5.96,True,Pure BEV
+genesis-electrified-gv70-2024,Genesis,Electrified GV70,"(2022+, E-GMP)",SUV,ev,2022,490.0,455.0,77.4,240.0,,,503.0,5,5,SUV / Crossover,5.88,True,Pure BEV
+genesis-gv60-2024,Genesis,GV60,"(2021+, E-GMP)",Crossover,ev,2021,229.0,466.0,77.4,233.0,,,432.0,5,5,SUV / Crossover,6.02,True,Pure BEV
+gwm-ora-03-2024,GWM,Ora 03,"I (ES11, 2022+; EU-uitvoering 2022+, rebranding nov 2023)",hatchback,ev,2023,171.0,420.0,63.1,67.0,17.0,,228.0,5,5,Hatchback,6.66,True,Pure BEV
+honda-crv-phev-2024,Honda,CR-V e:PHEV,"(VI, 2023+)",SUV,phev|hybride,2023,184.0,81.0,17.7,,,1500.0,587.0,5,5,SUV / Crossover,4.58,False,Plug-in Hybrid / Multi-fuel
+honda-eny1-2024,Honda,e:Ny1,(2023+),SUV,ev,2023,204.0,412.0,68.8,78.0,18.2,,,5,5,SUV / Crossover,5.99,True,Pure BEV
+hongqi-e-hs9-2021,Hongqi,E-HS9,EV (EU 2021+),SUV,ev,2021,551.0,465.0,99.0,135.0,,,,7,5,SUV / Crossover,4.7,True,Pure BEV
+hyundai-inster-2024,Hyundai,Inster,"eerste generatie (2024+, EU-debuut 2025)",hatchback,ev,2024,115.0,355.0,49.0,120.0,14.3,,351.0,4,5,Hatchback,7.24,True,Pure BEV
+hyundai-ioniq5-2024,Hyundai,Ioniq 5,"NE, facelift (2024)",Crossover,ev,2021,229.0,481.0,77.4,233.0,16.7,1600.0,520.0,5,5,SUV / Crossover,6.21,True,Pure BEV
+hyundai-ioniq6-2024,Hyundai,Ioniq 6,CE (2023+),Sedan,ev,2023,229.0,545.0,77.4,233.0,14.3,1500.0,401.0,5,5,Sedan,7.04,True,Pure BEV
+hyundai-ioniq9-2025,Hyundai,Ioniq 9,"eerste generatie (2025+, E-GMP 800V)",SUV,ev,2025,218.0,620.0,110.3,250.0,17.1,1600.0,338.0,7,5,SUV / Crossover,5.62,True,Pure BEV
+hyundai-kona-electric-2024,Hyundai,Kona Electric,"64 kWh (SX2, 2023+)",Crossover,ev,2023,218.0,514.0,65.4,102.0,16.6,750.0,466.0,5,5,SUV / Crossover,7.86,True,Pure BEV
+hyundai-santa-fe-2024,Hyundai,Santa Fe,"MX5 (2024+, hybrid-only EU)",SUV,hybride|phev,2024,253.0,,13.8,,,2500.0,711.0,7,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+jaecoo-7-2024,Jaecoo,7,Petrol/PHEV (EU 2024),SUV,benzine|phev,2024,204.0,,18.3,40.0,,,500.0,5,5,SUV / Crossover,,True,Plug-in Hybrid / Multi-fuel
+jeep-avenger-2024,Jeep,Avenger,B (2023+),SUV,ev|hybride|benzine,2023,156.0,396.0,54.0,100.0,15.4,,355.0,5,5,SUV / Crossover,7.33,True,Plug-in Hybrid / Multi-fuel
+jeep-wrangler-4xe-2024,Jeep,Wrangler 4xe,JL facelift (2024+),SUV,phev,2018,380.0,53.0,17.3,,,2495.0,533.0,5,5,SUV / Crossover,3.06,False,Pure BEV
+kia-ev3-2024,Kia,EV3,SK3 (2024+),Crossover,ev,2024,204.0,605.0,81.4,128.0,15.0,1000.0,460.0,5,5,SUV / Crossover,7.43,True,Pure BEV
+kia-ev4-2025,Kia,EV4,"Hatchback 81,4 kWh (EU-spec 2025+, E-GMP 400V)",Hatchback,ev,2025,204.0,625.0,78.0,135.0,14.9,1000.0,435.0,5,5,Hatchback,8.01,True,Pure BEV
+kia-ev5-2025,Kia,EV5,"eerste generatie (EU-spec 2025+, E-GMP 400V)",SUV,ev,2025,218.0,530.0,81.4,150.0,16.9,1200.0,566.0,5,5,SUV / Crossover,6.51,True,Pure BEV
+kia-ev6-2024,Kia,EV6,"CV, facelift (2024)",Crossover,ev,2021,229.0,528.0,84.0,258.0,16.5,1800.0,480.0,5,5,SUV / Crossover,6.29,True,Pure BEV
+kia-ev9-2024,Kia,EV9,"MV, eerste-generatie (2023+)",SUV,ev,2023,204.0,563.0,99.8,210.0,20.2,2500.0,333.0,7,5,SUV / Crossover,5.64,True,Pure BEV
+kia-niro-phev-2024,Kia,Niro,"PHEV (SG2, 2023+)",Crossover,phev,2022,183.0,,11.1,,,1300.0,348.0,5,5,SUV / Crossover,,False,Pure BEV
+kia-sorento-2024,Kia,Sorento,MQ4 facelift (2024+),SUV,hybride|phev,2020,252.0,,13.8,,,1650.0,813.0,7,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+lancia-ypsilon-2024,Lancia,Ypsilon,IV (2024+),Hatchback,ev|hybride|benzine,2024,156.0,403.0,54.0,100.0,14.3,,309.0,5,5,Hatchback,7.46,True,Plug-in Hybrid / Multi-fuel
+leapmotor-t03-2024,Leapmotor,T03,"EU (2024, Stellantis Pro One distributie)",Hatchback,ev,2024,95.0,265.0,37.3,48.0,,0.0,,4,5,Hatchback,7.1,True,Pure BEV
+leapmotor-b10-2025,Leapmotor,B10,"EU 67,1 kWh (2025, Stellantis Pro One distributie)",SUV,ev,2025,218.0,435.0,65.0,168.0,14.9,750.0,430.0,5,5,SUV / Crossover,6.69,True,Pure BEV
+lexus-nx-2024,Lexus,NX 450h+,450h+ Plug-in Hybrid (AAZH26),SUV,phev,2021,309.0,69.0,18.0,0.0,,1500.0,545.0,5,5,SUV / Crossover,3.83,False,Pure BEV
+lotus-eletre-2024,Lotus,Eletre,"(Type 132, 2023+)",SUV,ev,2023,612.0,600.0,112.0,350.0,21.3,,611.0,5,5,SUV / Crossover,5.36,True,Pure BEV
+lexus-rz-2024,Lexus,RZ,"(XEBM10, 2023+, e-TNGA EV)",SUV,ev,2023,,450.0,71.4,150.0,,,,5,5,SUV / Crossover,6.3,True,Pure BEV
+lotus-emeya-2024,Lotus,Emeya,"(Type 133, 2024+)",Sedan,ev,2024,612.0,610.0,102.0,350.0,18.9,,509.0,5,5,Sedan,5.98,True,Pure BEV
+lynk-co-01-phev-2024,Lynk & Co,01,"C-SUV PHEV facelift (2021+, EU)",SUV,phev,2020,261.0,69.0,14.1,,,1800.0,466.0,5,5,SUV / Crossover,4.89,False,Pure BEV
+maserati-grecale-2024,Maserati,Grecale,"(M182, 2022+)",SUV,benzine|ev,2022,330.0,426.0,105.0,150.0,24.5,,535.0,5,5,SUV / Crossover,4.06,True,Plug-in Hybrid / Multi-fuel
+lynk-co-02-2025,Lynk & Co,02,MY25 (2025-),SUV,ev,2025,272.0,445.0,62.0,150.0,17.1,1600.0,410.0,5,5,SUV / Crossover,7.18,True,Pure BEV
+mazda-cx60-2024,Mazda,CX-60,"(KH, 2022+)",SUV,phev|diesel|benzine,2022,327.0,63.0,17.8,,,2500.0,477.0,5,5,SUV / Crossover,3.54,False,Plug-in Hybrid / Multi-fuel
+mazda-cx80-2024,Mazda,CX-80,"(KL, 2024+)",SUV,phev|diesel,2024,327.0,60.0,17.8,,,2500.0,,7,5,SUV / Crossover,3.37,False,Plug-in Hybrid / Multi-fuel
+mazda-mx30-2024,Mazda,MX-30,"(DR, 2020+)",Crossover,ev|phev,2020,145.0,200.0,35.5,50.0,19.0,,366.0,5,5,SUV / Crossover,5.63,True,Pure BEV
+mclaren-artura-2024,McLaren,Artura,"(2022+, PHEV)",Coupe,phev,2022,700.0,33.0,7.4,,,,160.0,2,2,Coupe,4.46,False,Pure BEV
+mercedes-cla-2025,Mercedes-Benz,CLA,"C174 (2025-, MMA-platform)",Sedan,ev,2025,272.0,792.0,85.0,320.0,12.5,1500.0,405.0,5,4,Sedan,9.32,True,Pure BEV
+mercedes-eqa-2024,Mercedes-Benz,EQA,H243 facelift (2023+),SUV,ev,2021,190.0,560.0,70.5,100.0,14.4,1800.0,340.0,5,5,SUV / Crossover,7.94,True,Pure BEV
+mercedes-eqb-2024,Mercedes-Benz,EQB,X243 (facelift 2024),SUV,ev,2021,190.0,470.0,70.0,100.0,17.5,1700.0,495.0,5,5,SUV / Crossover,6.71,True,Pure BEV
+mercedes-eqe-2024,Mercedes-Benz,EQE,V295 EQE 350+ (2024),Sedan,ev,2022,292.0,660.0,89.0,170.0,15.9,750.0,430.0,5,5,Sedan,7.42,True,Pure BEV
+mercedes-eqs-2024,Mercedes-Benz,EQS,V297 facelift (2024+),Sedan,ev,2021,360.0,822.0,118.0,200.0,16.2,,610.0,5,5,Sedan,6.97,True,Pure BEV
+mercedes-eqs-suv-2024,Mercedes-Benz,EQS SUV,X296 (2022+),SUV,ev,2022,360.0,660.0,118.0,200.0,19.8,1800.0,645.0,7,5,SUV / Crossover,5.59,True,Pure BEV
+mercedes-g-klasse-2024,Mercedes-Benz,G-Klasse,W465 facelift (2024+),SUV,benzine|diesel|ev,2018,587.0,473.0,116.0,200.0,30.3,3500.0,555.0,5,5,SUV / Crossover,4.08,True,Plug-in Hybrid / Multi-fuel
+mercedes-gle-2024,Mercedes-Benz,GLE,V167 facelift (2023+),SUV,benzine|diesel|phev,2019,252.0,109.0,31.2,60.0,,2700.0,630.0,7,5,SUV / Crossover,3.49,True,Plug-in Hybrid / Multi-fuel
+mercedes-s-klasse-2024,Mercedes-Benz,S-Klasse,W223 (2020+),Sedan,benzine|diesel|phev,2020,286.0,117.0,28.6,60.0,,2100.0,550.0,5,5,Sedan,4.09,True,Plug-in Hybrid / Multi-fuel
+mg-cyberster-2024,MG,Cyberster,Roadster (2024+),Cabrio,ev,2024,340.0,520.0,77.0,144.0,18.8,,249.0,2,2,Convertible,6.75,True,Pure BEV
+mg-zs-ev-2024,MG,ZS EV,"II (AZS1, 2022+)",SUV,ev,2019,156.0,440.0,68.3,92.0,17.0,500.0,359.0,5,5,SUV / Crossover,6.44,True,Pure BEV
+mg4-ev-2024,MG,MG4 Electric,MULAN / EH32 (2022-),Hatchback,ev,2022,204.0,435.0,64.0,140.0,16.0,500.0,363.0,5,5,Hatchback,6.8,True,Pure BEV
+mg5-ev-2024,MG,MG5 EV,"Facelift (2022+, EU)",Stationwagen,ev,2020,156.0,400.0,61.1,87.0,17.2,500.0,479.0,5,5,Station Wagon,6.55,True,Pure BEV
+mini-aceman-2025,MINI,Aceman,J05 SE (2024-),crossover,ev,2024,218.0,406.0,49.2,95.0,14.8,750.0,300.0,5,5,SUV / Crossover,8.25,True,Pure BEV
+mini-cooper-electric-2024,MINI,Cooper Electric,J01 Cooper SE (2024),Hatchback,ev,2024,218.0,400.0,49.0,95.0,15.0,0.0,210.0,4,3,Hatchback,8.16,True,Pure BEV
+mini-countryman-2024,MINI,Countryman,U25 Cooper SE (2024),SUV,ev,2024,204.0,462.0,64.7,130.0,16.4,1200.0,460.0,5,5,SUV / Crossover,7.14,True,Pure BEV
+mitsubishi-asx-2024,Mitsubishi,ASX,"(2023+, II, gedeeld met Renault Captur)",SUV,hybride|phev|benzine,2023,158.0,49.0,10.5,,,1500.0,332.0,5,5,SUV / Crossover,4.67,False,Plug-in Hybrid / Multi-fuel
+nio-el6-2023,NIO,EL6,"2e-gen ES6 (2023+, EU)",SUV,ev,2023,653.0,529.0,100.0,140.0,,,668.0,5,5,SUV / Crossover,5.29,True,Pure BEV
+mitsubishi-eclipse-cross-phev-2024,Mitsubishi,Eclipse Cross PHEV,"(facelift 2021+, PHEV)",SUV,phev,2021,188.0,45.0,13.8,22.0,,1500.0,359.0,5,5,SUV / Crossover,3.26,True,Pure BEV
+nio-et5-2023,NIO,ET5,"I (2022+, EU 2023)",Sedan,ev,2023,480.0,580.0,100.0,140.0,,,,5,4,Sedan,5.8,True,Pure BEV
+nio-et5-touring-2023,NIO,ET5 Touring,"I (2023+, EU)",Stationwagen,ev,2023,480.0,560.0,100.0,180.0,,,450.0,5,5,Station Wagon,5.6,True,Pure BEV
+nio-et7-2022,NIO,ET7,"I (2022+, EU)",Sedan,ev,2022,653.0,580.0,100.0,140.0,,,,5,4,Sedan,5.8,True,Pure BEV
+nissan-ariya-2024,Nissan,Ariya,87 kWh Evolve (2024),SUV-coupé,ev,2022,242.0,533.0,87.0,130.0,19.0,1500.0,466.0,5,5,SUV / Crossover,6.13,True,Pure BEV
+nissan-leaf-2024,Nissan,Leaf,"ZE2, derde generatie (2025+)",SUV-coupé,ev,2025,218.0,604.0,75.0,150.0,14.4,0.0,437.0,5,5,SUV / Crossover,8.05,True,Pure BEV
+nissan-leaf-2026,Nissan,Leaf,"(III, 2025+)",Crossover,ev,2025,218.0,604.0,75.0,150.0,14.0,,437.0,5,5,SUV / Crossover,8.05,True,Pure BEV
+nissan-townstar-combi-2024,Nissan,Townstar Combi,(2022+),MPV,ev|benzine,2022,122.0,285.0,45.0,80.0,,,,7,5,MPV / Minivan,6.33,True,Plug-in Hybrid / Multi-fuel
+omoda-5-2024,Omoda,5,(EU 2024),SUV,benzine|ev,2024,204.0,430.0,61.0,80.0,,,380.0,5,5,SUV / Crossover,7.05,True,Plug-in Hybrid / Multi-fuel
+opel-astra-l-2024,Opel,Astra,L (2021+),Hatchback,ev|phev|benzine|diesel,2021,156.0,416.0,54.0,100.0,14.9,1400.0,352.0,5,5,Hatchback,7.7,True,Plug-in Hybrid / Multi-fuel
+opel-frontera-2024,Opel,Frontera,"C (2024, 1.2 Hybrid 100, 48 V)",SUV,hybride|ev,2024,100.0,,,,,0.0,,5,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+peugeot-308-phev-2024,Peugeot,308,"Plug-in Hybrid 195 e-DCS7 (P51, 2025+)",Hatchback,phev|benzine,2021,195.0,85.0,17.2,,,1360.0,314.0,5,5,Hatchback,4.94,False,Plug-in Hybrid / Multi-fuel
+peugeot-308-sw-2024,Peugeot,308 SW,"(III SW, 2022+)",Stationwagen,benzine|hybride|phev,2022,195.0,85.0,17.2,,,1300.0,608.0,5,5,Station Wagon,4.94,False,Plug-in Hybrid / Multi-fuel
+peugeot-408-2024,Peugeot,408,"I (P54, 2022+, Hybrid 225 e-EAT8)",Fastback,phev|benzine,2022,225.0,,12.4,,,1300.0,471.0,5,5,Hatchback,,False,Plug-in Hybrid / Multi-fuel
+peugeot-508-2024,Peugeot,508,"II facelift (R83, 2023+, Hybrid 180 e-EAT8)",Stationwagon,phev|benzine,2018,180.0,,12.4,,,1300.0,530.0,5,5,Station Wagon,,False,Plug-in Hybrid / Multi-fuel
+peugeot-e-5008-2024,Peugeot,E-5008,"III (2024-, STLA Medium)",SUV,ev,2024,213.0,502.0,73.0,160.0,17.0,1000.0,348.0,7,5,SUV / Crossover,6.88,True,Pure BEV
+peugeot-e208-2024,Peugeot,e-208,"II (facelift 2023, 51 kWh)",Hatchback,ev,2019,156.0,410.0,51.0,100.0,14.7,0.0,309.0,5,5,Hatchback,8.04,True,Pure BEV
+peugeot-e3008-2024,Peugeot,E-3008,III C Electric 73 kWh (2024+),SUV,ev,2024,213.0,525.0,73.0,160.0,16.5,1250.0,520.0,5,5,SUV / Crossover,7.19,True,Pure BEV
+peugeot-rifter-2024,Peugeot,Rifter,"(I facelift / e-Rifter, 2024+)",MPV,benzine|diesel|ev,2018,136.0,320.0,50.0,,,750.0,775.0,5,5,MPV / Minivan,6.4,False,Plug-in Hybrid / Multi-fuel
+polestar-2-2024,Polestar,2,Long Range Single Motor (facelift 2024),Fastback,ev,2020,299.0,655.0,82.0,205.0,14.8,1500.0,405.0,5,5,Hatchback,7.99,True,Pure BEV
+polestar-3-2024,Polestar,3,Long Range Dual Motor (2024),SUV,ev,2024,489.0,628.0,107.0,250.0,19.6,2200.0,484.0,5,5,SUV / Crossover,5.87,True,Pure BEV
+polestar-4-2024,Polestar,4,Long Range Single Motor (2024),SUV-coupe,ev,2024,272.0,620.0,100.0,200.0,17.8,1500.0,526.0,5,5,SUV / Crossover,6.2,True,Pure BEV
+renault-4-etech-2025,Renault,4 E-Tech,"E-Tech Electric (2025-, AmpR Small)",SUV,ev,2025,150.0,409.0,52.0,100.0,15.1,750.0,420.0,5,5,SUV / Crossover,7.87,True,Pure BEV
+renault-5-etech-2024,Renault,5 E-Tech,E-Tech Electric 52 kWh (2024),Hatchback,ev,2024,150.0,410.0,52.0,100.0,14.5,0.0,326.0,5,5,Hatchback,7.88,True,Pure BEV
+renault-megane-etech-2024,Renault,Megane E-Tech,E-Tech Electric 60 kWh (2024),Hatchback,ev,2022,220.0,450.0,60.0,130.0,16.1,0.0,440.0,5,5,Hatchback,7.5,True,Pure BEV
+renault-rafale-2024,Renault,Rafale,"(I, 2024+, full-hybrid 200 / PHEV 300)",SUV,hybride|phev,2024,200.0,,,,,1500.0,530.0,5,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+renault-scenic-etech-2024,Renault,Scenic E-Tech,E-Tech Electric long range 87 kWh (2024),SUV,ev,2024,220.0,620.0,87.0,150.0,16.4,1100.0,545.0,5,5,SUV / Crossover,7.13,True,Pure BEV
+rolls-royce-spectre-2024,Rolls-Royce,Spectre,"(2023+, EV)",Coupe,ev,2023,585.0,530.0,102.0,195.0,21.5,,295.0,4,2,Coupe,5.2,True,Pure BEV
+skoda-elroq-2024,Skoda,Elroq,"1e (2024-, MEB-platform)",SUV,ev,2024,286.0,560.0,77.0,175.0,15.5,,470.0,5,5,SUV / Crossover,7.27,True,Pure BEV
+skoda-enyaq-2024,Skoda,Enyaq,85 (facelift 2024),SUV,ev,2021,286.0,565.0,77.0,175.0,16.1,1400.0,585.0,5,5,SUV / Crossover,7.34,True,Pure BEV
+skoda-epiq-2026,Skoda,Epiq,"1e (2026-, MEB Entry-platform)",SUV,ev,2026,215.0,425.0,52.0,105.0,14.0,,475.0,5,5,SUV / Crossover,8.17,True,Pure BEV
+smart-1-2024,Smart,#1,Premium (2024),SUV,ev,2023,272.0,440.0,66.0,150.0,16.8,1600.0,411.0,5,5,SUV / Crossover,6.67,True,Pure BEV
+smart-3-2024,Smart,#3,"Premium RWD (2024-, SEA)",SUV,ev,2024,272.0,455.0,62.0,150.0,16.3,1600.0,370.0,5,5,SUV / Crossover,7.34,True,Pure BEV
+smart-5-2025,Smart,#5,(2025+),SUV,ev,2025,363.0,590.0,100.0,400.0,,,630.0,5,5,SUV / Crossover,5.9,True,Pure BEV
+subaru-solterra-2024,Subaru,Solterra,"(2022+, gedeeld met Toyota bZ4X)",SUV,ev,2022,218.0,466.0,71.4,150.0,18.0,750.0,452.0,5,5,SUV / Crossover,6.53,True,Pure BEV
+suzuki-across-2024,Suzuki,Across,"(2020+, gedeeld met Toyota RAV4 PHEV)",SUV,phev,2020,306.0,75.0,18.1,,,1500.0,490.0,5,5,SUV / Crossover,4.14,False,Pure BEV
+tesla-model-s-2021,Tesla,Model S,Plaid Refresh (2021+),Sedan,ev,2021,670.0,634.0,100.0,250.0,16.5,1600.0,793.0,5,5,Sedan,6.34,True,Pure BEV
+tesla-model-3-2024,Tesla,Model 3,Highland (2024),Sedan,ev,2023,283.0,513.0,60.0,170.0,13.2,1000.0,594.0,5,4,Sedan,8.55,True,Pure BEV
+tesla-model-x-2021,Tesla,Model X,Refresh (2021+),SUV,ev,2021,670.0,576.0,100.0,250.0,19.5,2250.0,2577.0,7,5,SUV / Crossover,5.76,True,Pure BEV
+tesla-model-y-juniper-2025,Tesla,Model Y,"Juniper Long Range AWD (2025, facelift)",SUV,ev,2025,514.0,586.0,75.0,250.0,12.8,1600.0,854.0,5,5,SUV / Crossover,7.81,True,Pure BEV
+tesla-model-y-2024,Tesla,Model Y,Long Range AWD (2024),SUV,ev,2021,378.0,533.0,75.0,250.0,15.7,1600.0,854.0,5,5,SUV / Crossover,7.11,True,Pure BEV
+toyota-bz4x-2024,Toyota,bZ4X,FWD 71 kWh (XEAM10),SUV,ev,2022,204.0,460.0,71.0,150.0,16.5,750.0,452.0,5,5,SUV / Crossover,6.48,True,Pure BEV
+toyota-mirai-2024,Toyota,Mirai,"(JPD20, 2020+, FCEV)",Sedan,ev,2020,182.0,,,,,,,5,4,Sedan,,False,Pure BEV
+toyota-rav4-phev-2024,Toyota,RAV4 Plug-in Hybrid,"2.5 PHEV (XA50, facelift)",SUV,phev,2020,306.0,75.0,18.0,0.0,,1500.0,520.0,5,5,SUV / Crossover,4.17,False,Pure BEV
+volkswagen-golf7-gte-2018,Volkswagen,Golf GTE,VII (5G) facelift,Hatchback,phev,2017,204.0,50.0,8.7,,,1500.0,272.0,5,5,Hatchback,5.75,False,Pure BEV
+volkswagen-id-polo-2026,Volkswagen,ID. Polo,"MEB Entry, 155 kW / 51,7 kWh (2026-)",Hatchback,ev,2026,211.0,454.0,51.7,105.0,13.3,1200.0,441.0,5,5,Hatchback,8.78,True,Pure BEV
+volkswagen-id3-2024,Volkswagen,ID.3,Pro facelift (2024),Hatchback,ev,2020,204.0,426.0,58.0,120.0,15.6,0.0,385.0,5,5,Hatchback,7.34,True,Pure BEV
+volkswagen-id4-2024,Volkswagen,ID.4,2024,SUV,ev,2021,286.0,550.0,77.0,175.0,16.5,1200.0,543.0,5,5,SUV / Crossover,7.14,True,Pure BEV
+volkswagen-id5-2024,Volkswagen,ID.5,MEB (2022+),SUV,ev,2022,286.0,550.0,77.0,175.0,16.2,1200.0,549.0,5,5,SUV / Crossover,7.14,True,Pure BEV
+volkswagen-id7-2024,Volkswagen,ID.7,Pro (2024),Sedan,ev,2023,286.0,615.0,77.0,175.0,14.1,1000.0,532.0,5,5,Sedan,7.99,True,Pure BEV
+volkswagen-id7-tourer-2024,Volkswagen,ID.7 Tourer,Pro (2024),Stationwagen,ev,2024,286.0,607.0,77.0,175.0,14.6,1000.0,605.0,5,5,Station Wagon,7.88,True,Pure BEV
+volkswagen-idbuzz-2024,Volkswagen,ID. Buzz,"MEB (2022+, LWB sinds 2024)",MPV,ev,2022,286.0,461.0,86.0,200.0,20.4,1800.0,1340.0,7,5,MPV / Minivan,5.36,True,Pure BEV
+volkswagen-up-2017,Volkswagen,e-up!,"facelift (2020-2023, 32 kWh)",Hatchback,ev,2013,83.0,260.0,32.0,40.0,14.4,0.0,251.0,4,5,Hatchback,8.12,True,Pure BEV
+volvo-ex30-2024,Volvo,EX30,Single Motor Extended Range (2024),SUV,ev,2023,272.0,476.0,64.0,153.0,16.7,1400.0,318.0,5,5,SUV / Crossover,7.44,True,Pure BEV
+volvo-ex30-cross-country-2025,Volvo,EX30 Cross Country,"Twin Motor Performance (2025, off-road-trim)",SUV,ev,2025,428.0,427.0,65.0,158.0,18.7,1600.0,318.0,5,5,SUV / Crossover,6.57,True,Pure BEV
+volvo-ex40-2024,Volvo,EX40,Hernoemd van XC40 Recharge (2024+),SUV,ev,2024,252.0,572.0,82.0,200.0,17.0,1500.0,419.0,5,5,SUV / Crossover,6.98,True,Pure BEV
+volvo-ex90-2024,Volvo,EX90,Twin Motor (2024),SUV,ev,2024,408.0,614.0,107.0,250.0,19.9,2200.0,310.0,7,5,SUV / Crossover,5.74,True,Pure BEV
+volvo-xc60-2024,Volvo,XC60,II T6 Recharge plug-in (facelift 2024),SUV,phev,2017,350.0,,14.7,,,2250.0,468.0,5,5,SUV / Crossover,,False,Pure BEV
+volvo-xc90-2024,Volvo,XC90,II facelift (2024+),SUV,phev|benzine,2014,455.0,,18.8,,,2700.0,302.0,7,5,SUV / Crossover,,False,Plug-in Hybrid / Multi-fuel
+xpeng-g6-2024,Xpeng,G6,I (2023+; EU-uitvoering 2024+),SUV,ev,2024,292.0,570.0,80.8,280.0,17.5,,571.0,5,5,SUV / Crossover,7.05,True,Pure BEV
+xpeng-g9-2024,Xpeng,G9,I (2022+; EU-uitvoering 2024+),SUV,ev,2024,313.0,570.0,98.0,300.0,19.8,,660.0,5,5,SUV / Crossover,5.82,True,Pure BEV
+zeekr-001-2024,Zeekr,001,"I (2021+; EU-uitvoering 2023+, facelift 2024)",shooting brake,ev,2023,544.0,620.0,100.0,200.0,19.5,,539.0,5,5,Station Wagon,6.2,True,Pure BEV
+zeekr-7x-2025,Zeekr,7X,"I (2024-, EU-introductie 2025)",SUV,ev,2025,421.0,480.0,75.0,,17.8,2000.0,539.0,5,5,SUV / Crossover,6.4,False,Pure BEV
+zeekr-x-2024,Zeekr,X,"I (2023+, EU 2024)",SUV,ev,2024,272.0,440.0,69.0,150.0,14.5,,362.0,5,5,SUV / Crossover,6.38,True,Pure BEV

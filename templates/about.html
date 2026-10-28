@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}VoltScope — Methodology, Stakeholders & About{% endblock %}
+
+{% block content %}
+<div class="container page-container">
+    <div class="dashboard-header-block">
+        <div>
+            <div class="dashboard-badge">Methodology & Governance</div>
+            <h1 class="page-title">Project Background, Stakeholders & Architecture</h1>
+            <p class="page-subtitle">
+                Academic analytics project specifications, problem definition, stakeholder scenarios, 
+                technology choices, and transparent methodological limitations.
+            </p>
+        </div>
+    </div>
+
+    <!-- Problem Understanding & Scope -->
+    <section class="card mb-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">1. Problem Statement & Project Objectives</h3>
+                <p class="card-subtitle">Addressing complex commercial and sustainability questions in the EV transition.</p>
+            </div>
+        </div>
+        <div class="prose-content">
+            <p>
+                The global automotive sector is undergoing its most radical transformation in over a century, propelled by 
+                stringent emissions targets, industrial subsidies, and rapid battery innovation. However, decision-makers are 
+                often impeded by conflicting datasets: high-level sales totals are conflated with manufacturer shares, and lab-tested 
+                vehicle specifications are misapplied across sovereign adoption curves.
+            </p>
+            <p>
+                <strong>VoltScope</strong> delivers a unified, reproducible data analytics platform that rigorously segregates 
+                market sales at their true geographic and temporal grain, links engineering specifications at the vehicle model grain, 
+                and models environmental outcomes with authentic empirical indicators.
+            </p>
+            <div class="objectives-grid">
+                <div class="obj-box">
+                    <div class="obj-num">01</div>
+                    <div class="obj-title">Time-Series Velocity</div>
+                    <p>Track month-over-month and year-over-year adoption trends across 56 nations from 2005 through 2026.</p>
+                </div>
+                <div class="obj-box">
+                    <div class="obj-num">02</div>
+                    <div class="obj-title">Powertrain Mix Transition</div>
+                    <p>Quantify the substitution velocity of pure BEVs and PHEVs replacing legacy internal combustion vehicles.</p>
+                </div>
+                <div class="obj-box">
+                    <div class="obj-num">03</div>
+                    <div class="obj-title">Engineering Benchmarks</div>
+                    <p>Evaluate trade-offs between battery capacity, vehicle body mass, certified range, and charging throughput.</p>
+                </div>
+                <div class="obj-box">
+                    <div class="obj-num">04</div>
+                    <div class="obj-title">Grid & Decarbonization</div>
+                    <p>Model petroleum displacement volume and corresponding electricity grid demand across leading fleets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Stakeholder Scenarios -->
+    <section class="card mb-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">2. Target Stakeholder Scenarios</h3>
+                <p class="card-subtitle">How VoltScope delivers tailored business intelligence to diverse decision-makers.</p>
+            </div>
+        </div>
+        <div class="stakeholder-detailed-grid">
+            <div class="stakeholder-card">
+                <div class="stakeholder-avatar">👩‍💼</div>
+                <h4 class="stakeholder-name">Emily Johnson</h4>
+                <div class="stakeholder-role">EV Market Strategy Director</div>
+                <div class="stakeholder-profile">
+                    <strong>Business Mandate:</strong> Inform OEM product portfolio planning, market segmentation, and powertrain resource allocation.
+                </div>
+                <div class="stakeholder-questions">
+                    <strong>Key Business Questions Answered:</strong>
+                    <ul>
+                        <li>Which vehicle categories (SUVs vs Sedans vs Hatchbacks) offer the optimal balance of market demand and range?</li>
+                        <li>What is the battery sweet-spot (kWh) that maximizes consumer utility without inflating pack cost?</li>
+                        <li>Where are high-growth market segments emerging internationally?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stakeholder-card">
+                <div class="stakeholder-avatar">👨‍💼</div>
+                <h4 class="stakeholder-name">David Chen</h4>
+                <div class="stakeholder-role">Automotive Business Intelligence Manager</div>
+                <div class="stakeholder-profile">
+                    <strong>Business Mandate:</strong> Track competitive market positioning, multi-year sales trends, and regional expansion viability.
+                </div>
+                <div class="stakeholder-questions">
+                    <strong>Key Business Questions Answered:</strong>
+                    <ul>
+                        <li>How does EV adoption velocity differ between Tier-1 markets (China, Germany) and emerging markets?</li>
+                        <li>What is the market share ratio between pure BEVs and PHEVs in key regulatory zones?</li>
+                        <li>Which sovereign markets provide the highest sales volume per capita?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stakeholder-card">
+                <div class="stakeholder-avatar">👩‍🔬</div>
+                <h4 class="stakeholder-name">Dr. Sarah Williams</h4>
+                <div class="stakeholder-role">Sustainable Mobility Research Analyst</div>
+                <div class="stakeholder-profile">
+                    <strong>Business Mandate:</strong> Quantify environmental impact, petroleum displacement, and renewable grid integration requirements.
+                </div>
+                <div class="stakeholder-questions">
+                    <strong>Key Business Questions Answered:</strong>
+                    <ul>
+                        <li>How many barrels of crude oil equivalent are actively displaced by current national EV fleets?</li>
+                        <li>What is the corresponding annual electricity demand generated by expanding EV fleets?</li>
+                        <li>What evidence-based recommendations support clean transport infrastructure deployment?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack & Engineering Choices -->
+    <section class="card mb-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">3. Technology Stack & Design Decisions</h3>
+                <p class="card-subtitle">Architected for simplicity, maintainability, portability, and zero external cloud costs.</p>
+            </div>
+        </div>
+        <div class="tech-stack-grid">
+            <div class="tech-item">
+                <div class="tech-name">Python 3.13</div>
+                <div class="tech-desc">Core data extraction, parsing, typing, and backend orchestration logic.</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-name">Pandas & NumPy</div>
+                <div class="tech-desc">Vectorized data cleaning, feature engineering, duplicate detection, and audit reporting.</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-name">SQLite 3 Database</div>
+                <div class="tech-desc">Relational storage (12.4 MB) with foreign keys, composite indexes, and analytical SQL views.</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-name">SQL Analytical Suite</div>
+                <div class="tech-desc">Structured query portfolio featuring CTEs, window functions (RANK, LAG), and safe NULL handling.</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-name">Tableau Desktop / Public</div>
+                <div class="tech-desc">Executive visual analytics, 6 core charts, 5 calculated fields, and a 4-scene narrative Story.</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-name">Flask & Jinja 2</div>
+                <div class="tech-desc">Lightweight web presentation layer integrating Tableau Embedding API v3 and Chart.js local preview.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explicit Data Limitations & Guardrails -->
+    <section class="card">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">4. Methodological Limitations & Integrity Boundaries</h3>
+                <p class="card-subtitle">Transparent disclosure of data boundaries and deliberate analytical constraints.</p>
+            </div>
+        </div>
+        <div class="limitations-list">
+            <div class="limitation-item">
+                <strong>No Conflation of Grain:</strong> Model-level engineering specs (166 models) are not artificially cross-multiplied by national sales totals, avoiding fictitious model-by-country sales figures.
+            </div>
+            <div class="limitation-item">
+                <strong>Customer Satisfaction & Ratings:</strong> Omitted from primary dashboards. Public consumer sentiment datasets for EVs lack rigorous methodology or uniform sampling; synthetic ratings are strictly prohibited.
+            </div>
+            <div class="limitation-item">
+                <strong>Manufacturer Headquarters vs. Assembly Location:</strong> Brand headquarters (e.g. Volvo in Sweden, Polestar in Sweden) are not misattributed as the physical vehicle manufacturing location.
+            </div>
+            <div class="limitation-item">
+                <strong>Battery Chemistry Limitations:</strong> Specific cathode chemistry details (LFP vs NMC 811) are inconsistent or proprietary across open spec catalogs and are thus excluded from ungrounded claims.
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

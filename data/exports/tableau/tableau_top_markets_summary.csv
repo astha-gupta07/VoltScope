@@ -1,0 +1,60 @@
+country,iso_3_code,continent,year,annual_ev_sales,avg_market_share_pct
+China,CHN,Asia,2025,12808930.0,53.51
+United States,USA,North America,2025,1530266.0,9.43
+Germany,DEU,Europe,2025,856540.0,30.02
+United Kingdom,GBR,Europe,2025,698491.0,35.18
+France,FRA,Europe,2025,440964.0,26.25
+Türkiye,TUR,Asia,2025,235442.0,21.27
+Spain,ESP,Europe,2025,232754.0,19.41
+South Korea,KOR,Asia,2025,230070.0,13.46
+Netherlands,NLD,Europe,2025,229944.0,58.21
+Italy,ITA,Europe,2025,194306.0,12.85
+India,IND,Asia,2025,187821.0,4.52
+Belgium,BEL,Europe,2025,183480.0,44.7
+Brazil,BRA,South America,2025,175617.0,6.79
+Norway,NOR,Europe,2025,174981.0,97.23
+Viet Nam,VNM,Asia,2025,174618.0,38.56
+Sweden,SWE,Europe,2025,173588.0,60.97
+Australia,AUS,Oceania,2025,154150.0,12.69
+Thailand,THA,Asia,2025,140889.0,23.46
+Denmark,DNK,Europe,2025,131235.0,70.54
+Indonesia,IDN,Asia,2025,107952.0,17.39
+Ukraine,UKR,Europe,2025,103698.0,27.2
+Japan,JPN,Asia,2025,96616.0,2.52
+Israel,ISR,Asia,2025,91877.0,32.33
+Austria,AUT,Europe,2025,89471.0,31.31
+Portugal,PRT,Europe,2025,86422.0,39.21
+Switzerland,CHE,Europe,2025,79424.0,33.54
+Poland,POL,Europe,2025,77220.0,12.61
+Malaysia,MYS,Asia,2025,44813.0,5.01
+Ireland,IRL,Europe,2025,42535.0,43.36
+Finland,FIN,Europe,2025,41268.0,57.52
+Hong Kong (SAR of China),HKG,Asia,2025,37418.0,85.55
+Mexico,MEX,North America,2025,34607.0,2.25
+Taiwan (China),TWN,Asia,2025,32362.0,8.67
+Czechia,CZE,Europe,2025,24839.0,9.94
+Singapore,SGP,Asia,2025,24480.0,46.08
+Greece,GRC,Europe,2025,20548.0,14.61
+Colombia,COL,South America,2025,19724.0,7.58
+Hungary,HUN,Europe,2025,18139.0,13.99
+Nepal,NPL,Asia,2025,17674.0,66.77
+Luxembourg,LUX,Europe,2025,16384.0,34.91
+Uruguay,URY,South America,2025,14387.0,20.49
+New Zealand,NZL,Oceania,2025,14089.0,7.84
+Iceland,ISL,Europe,2025,9057.0,64.36
+Romania,ROU,Europe,2025,8849.0,5.5
+Chile,CHL,South America,2025,8797.0,2.81
+Slovakia,SVK,Europe,2025,8461.0,9.0
+Slovenia,SVN,Europe,2025,8358.0,14.86
+Lithuania,LTU,Europe,2025,7598.0,18.16
+Albania,ALB,Europe,2025,5723.0,7.1
+Latvia,LVA,Europe,2025,4344.0,19.17
+Ecuador,ECU,South America,2025,4276.0,3.35
+Croatia,HRV,Europe,2025,3795.0,6.1
+Bulgaria,BGR,Europe,2025,3073.0,6.33
+Estonia,EST,Europe,2025,2271.0,18.18
+Cyprus,CYP,Europe,2025,2247.0,15.92
+Malta,MLT,Europe,2025,2062.0,32.41
+Peru,PER,South America,2025,1391.0,0.65
+Canada,CAN,North America,2025,,
+South Africa,ZAF,Africa,2025,,

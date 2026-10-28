@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}VoltScope — Executive EV Market Dashboard{% endblock %}
+
+{% block content %}
+<div class="container page-container">
+    <!-- Dashboard Header & Status -->
+    <div class="dashboard-header-block">
+        <div>
+            <div class="dashboard-badge">Executive Analytics</div>
+            <h1 class="page-title">EV Market Performance & Technical Benchmarks</h1>
+            <p class="page-subtitle">
+                Interactive executive dashboard tracking global EV sales velocity, drivetrain market share, 
+                engineering performance (battery capacity vs range), and petroleum displacement.
+            </p>
+        </div>
+        <div class="dashboard-controls">
+            {% if has_tableau_dashboard %}
+            <span class="badge badge-success">● Tableau Embedding API v3 Active</span>
+            {% else %}
+            <span class="badge badge-warning">⚡ Local Interactive BI Preview</span>
+            {% endif %}
+            <button class="btn btn-outline btn-sm" onclick="resetFilters()">Reset Filters</button>
+        </div>
+    </div>
+
+    {% if has_tableau_dashboard %}
+    <!-- LIVE TABLEAU EMBED VIA OFFICIAL TABLEAU EMBEDDING API v3 -->
+    <section class="card tableau-card">
+        <div class="card-header">
+            <h3 class="card-title">Live Tableau Public Dashboard</h3>
+            <span class="tag-live">Embedding API v3</span>
+        </div>
+        <div class="tableau-embed-container">
+            <tableau-viz id="tableauViz" 
+                         src="{{ tableau_dashboard_url }}" 
+                         toolbar="bottom" 
+                         hide-tabs 
+                         width="100%" 
+                         height="850px">
+            </tableau-viz>
+        </div>
+    </section>
+    {% else %}
+    <!-- CONFIGURATION NOTICE & NATIVE INTERACTIVE BI PREVIEW -->
+    <div class="notice-card">
+        <div class="notice-icon">ℹ️</div>
+        <div class="notice-body">
+            <strong>Tableau Public URL is not configured in .env</strong>
+            <p>
+                To embed your live Tableau dashboard, publish your workbook to Tableau Public or Server and set 
+                <code>TABLEAU_DASHBOARD_URL="https://public.tableau.com/views/..."</code> in your <code>.env</code> file.
+                See detailed steps in <a href="{{ url_for('about') }}#tableau-guide">Tableau Build Guide</a>.
+            </p>
+            <p class="notice-sub">
+                In the meantime, VoltScope renders the <strong>Native Interactive BI Preview</strong> below directly from your local SQLite database.
+            </p>
+        </div>
+    </div>
+
+    <!-- Interactive Filter Toolbar for Local Preview -->
+    <div class="filter-toolbar card">
+        <div class="filter-group">
+            <label for="filterYear">Year Filter:</label>
+            <select id="filterYear" class="filter-select" onchange="applyFilters()">
+                <option value="all">All Available Years</option>
+                <option value="2025" selected>2025 (Full Year)</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filterCategory">Vehicle Category:</label>
+            <select id="filterCategory" class="filter-select" onchange="applyFilters()">
+                <option value="all">All Categories</option>
+                <option value="SUV / Crossover">SUV / Crossover</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="Sedan">Sedan</option>
+                <option value="Station Wagon">Station Wagon</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filterMetric">Drivetrain Metric:</label>
+            <select id="filterMetric" class="filter-select" onchange="applyFilters()">
+                <option value="sales" selected>Registrations Volume</option>
+                <option value="share">Market Share %</option>
+            </select>
+        </div>
+        <div class="filter-stats" id="filterFeedback">
+            Showing verified SQLite records
+        </div>
+    </div>
+
+    <!-- 6 Core Business Charts Grid (Matching Tableau Specifications) -->
+    <div class="chart-grid">
+        <!-- Chart 1: Global EV Sales Trajectory Over Time -->
+        <div class="card chart-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">1. Global EV Sales Trajectory Over Time</h3>
+                    <p class="card-subtitle">Monthly new electric vehicle registrations (BEV + PHEV) and 12-month rolling momentum.</p>
+                </div>
+                <span class="chart-tag">Time Series</span>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="chartSalesTrend"></canvas>
+            </div>
+        </div>
+
+        <!-- Chart 2: Top Sovereign EV Markets -->
+        <div class="card chart-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">2. Top Sovereign EV Markets (2025 Volume)</h3>
+                    <p class="card-subtitle">Annual electric passenger car registrations for leading nations.</p>
+                </div>
+                <span class="chart-tag">Ranked Bar</span>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="chartTopCountries"></canvas>
+            </div>
+        </div>
+
+        <!-- Chart 3: Drivetrain Transition Over Time -->
+        <div class="card chart-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">3. Powertrain Transformation Mix</h3>
+                    <p class="card-subtitle">Annual registrations breakdown across BEV, PHEV, Hybrid, Petrol, and Diesel.</p>
+                </div>
+                <span class="chart-tag">Composition</span>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="chartDrivetrainMix"></canvas>
+            </div>
+        </div>
+
+        <!-- Chart 4: Battery Capacity vs Driving Range -->
+        <div class="card chart-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">4. Battery Capacity vs Driving Range</h3>
+                    <p class="card-subtitle">Battery pack size (kWh) vs WLTP range (km) across verified EV models.</p>
+                </div>
+                <span class="chart-tag">Scatter Plot</span>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="chartBatteryVsRange"></canvas>
+            </div>
+        </div>
+
+        <!-- Chart 5: Category Benchmarks -->
+        <div class="card chart-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">5. Driving Range by Vehicle Category</h3>
+                    <p class="card-subtitle">Mean WLTP driving range (km) and fast-charge power (kW) by body style.</p>
+                </div>
+                <span class="chart-tag">Distribution</span>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="chartCategorySpecs"></canvas>
+            </div>
+        </div>
+
+        <!-- Chart 6: Sustainability & Oil Displacement -->
+        <div class="card chart-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">6. Annual Petroleum Displaced by Nation</h3>
+                    <p class="card-subtitle">Thousands of barrels of crude oil equivalent displaced annually by active EV fleet.</p>
+                </div>
+                <span class="chart-tag">Impact</span>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="chartSustainability"></canvas>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

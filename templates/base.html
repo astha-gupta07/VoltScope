@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VoltScope — Electric Vehicle Market Performance & Insights{% endblock %}</title>
+    <!-- Modern Clean Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Chart.js for Local Interactive Fallback Preview -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Official Tableau Embedding API v3 Web Component -->
+    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <!-- VoltScope Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Top Navigation Header -->
+    <header class="site-header">
+        <div class="header-inner container">
+            <a href="{{ url_for('index') }}" class="brand-logo">
+                <span class="logo-symbol">⚡</span>
+                <span class="brand-name">Volt<span class="brand-accent">Scope</span></span>
+                <span class="badge-academic">BI Edition</span>
+            </a>
+            <nav class="main-nav">
+                <a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">Executive Overview</a>
+                <a href="{{ url_for('dashboard') }}" class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard</a>
+                <a href="{{ url_for('story') }}" class="nav-link {% if request.endpoint == 'story' %}active{% endif %}">Tableau Story</a>
+                <a href="{{ url_for('data_catalog') }}" class="nav-link {% if request.endpoint == 'data_catalog' %}active{% endif %}">Data Catalog</a>
+                <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">Methodology & About</a>
+            </nav>
+            <div class="header-status">
+                <span class="status-indicator online"></span>
+                <span class="status-label">SQLite: Connected</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <div class="footer-logo">⚡ VoltScope</div>
+                <p class="footer-desc">
+                    Comprehensive Electric Vehicle Market Performance & Insights platform built with Python, SQL, SQLite, Tableau, and Flask.
+                </p>
+                <div class="footer-license">Datasets governed under <strong>CC BY 4.0</strong> (Ember & autoseeker.eu)</div>
+            </div>
+            <div class="footer-col">
+                <h4>System Architecture</h4>
+                <ul class="footer-links">
+                    <li><a href="{{ url_for('data_catalog') }}">SQLite Relational Database</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Tableau Embedding API v3</a></li>
+                    <li><a href="{{ url_for('story') }}">4-Scene Tableau Narrative</a></li>
+                    <li><a href="{{ url_for('about') }}">Stakeholder Personas & Scope</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Data Governance</h4>
+                <p class="footer-text">
+                    Strict data integrity: Model specifications and country-level sales are maintained at authentic grains. Zero synthetic or invented data.
+                </p>
+                <div class="footer-copyright">Academic Project © 2026 VoltScope</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+
+# Environment Variables and Credentials
+.env
+*.local
+
+# Database
+database/*.db
+database/*.sqlite3
+*.db
+*.sqlite3
+
+# Large raw datasets or temp exports if needed (comment out if committing sample data)
+data/processed/*.parquet
+data/processed/*.feather
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

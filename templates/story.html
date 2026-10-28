@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}VoltScope — Tableau 4-Scene Data Story{% endblock %}
+
+{% block content %}
+<div class="container page-container">
+    <div class="dashboard-header-block">
+        <div>
+            <div class="dashboard-badge">Data-Driven Narrative</div>
+            <h1 class="page-title">Tableau Story: The Global Electric Vehicle Transition</h1>
+            <p class="page-subtitle">
+                A structured four-scene analytical story examining market acceleration, geographic divergence, 
+                powertrain engineering benchmarks, and sustainable mobility impact.
+            </p>
+        </div>
+        <div>
+            {% if has_tableau_story %}
+            <span class="badge badge-success">● Tableau Story API v3 Active</span>
+            {% else %}
+            <span class="badge badge-warning">⚡ Interactive Story Walkthrough</span>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if has_tableau_story %}
+    <!-- LIVE TABLEAU STORY EMBED -->
+    <section class="card tableau-card">
+        <div class="card-header">
+            <h3 class="card-title">Live Published Tableau Story</h3>
+            <span class="tag-live">Embedding API v3</span>
+        </div>
+        <div class="tableau-embed-container">
+            <tableau-viz id="tableauStoryViz" 
+                         src="{{ tableau_story_url }}" 
+                         toolbar="bottom" 
+                         hide-tabs 
+                         width="100%" 
+                         height="880px">
+            </tableau-viz>
+        </div>
+    </section>
+    {% else %}
+    <!-- LOCAL STORY NAVIGATION & NARRATIVE TABS -->
+    <div class="notice-card mb-4">
+        <div class="notice-icon">📖</div>
+        <div class="notice-body">
+            <strong>Tableau Story Public URL is not configured in .env</strong>
+            <p>
+                To embed your published Tableau Story, set <code>TABLEAU_STORY_URL</code> in <code>.env</code>.
+                Below is the complete 4-Scene data story grounded in our validated SQLite analytics.
+            </p>
+        </div>
+    </div>
+
+    <!-- Scene Selector Tabs -->
+    <div class="story-tabs-container">
+        <button class="story-tab active" onclick="switchStoryScene(1)">
+            <span class="scene-num">Scene 1</span>
+            <span class="scene-label">Market at a Glance</span>
+        </button>
+        <button class="story-tab" onclick="switchStoryScene(2)">
+            <span class="scene-num">Scene 2</span>
+            <span class="scene-label">Where Adoption Surges</span>
+        </button>
+        <button class="story-tab" onclick="switchStoryScene(3)">
+            <span class="scene-num">Scene 3</span>
+            <span class="scene-label">Tech & Performance</span>
+        </button>
+        <button class="story-tab" onclick="switchStoryScene(4)">
+            <span class="scene-num">Scene 4</span>
+            <span class="scene-label">Strategic Recommendations</span>
+        </button>
+    </div>
+
+    <!-- Scene 1: Market at a Glance -->
+    <div id="scene-1" class="story-scene-content active card">
+        <div class="scene-header">
+            <span class="scene-badge">Scene 1 of 4</span>
+            <h2>The EV Market at a Glance: Rapid Volume & Inflection Points</h2>
+            <p class="scene-caption">
+                Evaluating the historical velocity of global EV adoption from niche novelty to mainstream industrial scale.
+            </p>
+        </div>
+        <div class="scene-body-grid">
+            <div class="scene-narrative">
+                <h4>Core Empirical Findings</h4>
+                <p>
+                    Between 2015 and 2025, global monthly electric vehicle registrations underwent exponential expansion. 
+                    What was once a volatile, subsidy-dependent segment has matured into a reliable industrial volume exceeding 
+                    1.5 million registrations per month globally in late 2024 and 2025.
+                </p>
+                <div class="scene-callout">
+                    <strong>Key Metric:</strong> Global annual EV sales in surveyed countries surpassed 14 million units in 2025, 
+                    with pure Battery Electric Vehicles (BEVs) accounting for approximately 68% of electric registrations and Plug-in Hybrids (PHEVs) capturing 32%.
+                </div>
+                <h4>Evidence-Based Takeaway</h4>
+                <p>
+                    The 12-month rolling trend removes seasonal registration surges (typically seen in March and September due to registration plate changes in key European and UK markets) and proves steady compounding adoption.
+                </p>
+            </div>
+            <div class="scene-visual">
+                <div class="chart-wrapper-story">
+                    <canvas id="storyChart1"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 2: Where Adoption Is Growing -->
+    <div id="scene-2" class="story-scene-content card" style="display: none;">
+        <div class="scene-header">
+            <span class="scene-badge">Scene 2 of 4</span>
+            <h2>Where Adoption Is Growing: Geographic Polarization & Leaders</h2>
+            <p class="scene-caption">
+                Sovereign market analysis revealing divergent penetration rates, regulatory drivers, and volume leaders.
+            </p>
+        </div>
+        <div class="scene-body-grid">
+            <div class="scene-narrative">
+                <h4>Market Polarization</h4>
+                <p>
+                    The global EV landscape demonstrates marked geographical concentration:
+                </p>
+                <ul class="story-bullets">
+                    <li><strong>China:</strong> Represents the world's largest single market by volume, exceeding 60% of total global monthly EV deliveries.</li>
+                    <li><strong>Nordic Leaders (Norway, Sweden, Denmark):</strong> Boast the highest relative market share percentages (Norway routinely exceeds 85–90% monthly EV market share).</li>
+                    <li><strong>Western Europe & UK:</strong> Moderate-to-high penetration (20%–28% EV market share) supported by stringent fleet emission regulations.</li>
+                    <li><strong>North America & Emerging Markets:</strong> High total volume in the United States, but lower overall market share (~9–10%), while ASEAN and Latin American nations show rapid triple-digit percentage growth from a smaller base.</li>
+                </ul>
+            </div>
+            <div class="scene-visual">
+                <div class="chart-wrapper-story">
+                    <canvas id="storyChart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 3: Tech and Performance -->
+    <div id="scene-3" class="story-scene-content card" style="display: none;">
+        <div class="scene-header">
+            <span class="scene-badge">Scene 3 of 4</span>
+            <h2>Vehicle Performance & Battery Technology: Engineering Trade-offs</h2>
+            <p class="scene-caption">
+                Analyzing the relationship between battery capacity, certified driving range, charging speed, and body categories.
+            </p>
+        </div>
+        <div class="scene-body-grid">
+            <div class="scene-narrative">
+                <h4>Engineering Dynamics</h4>
+                <p>
+                    Cross-sectional analysis of 166 verified EV models illustrates clear technological clustering:
+                </p>
+                <div class="scene-callout">
+                    <strong>Battery vs. Range Correlation:</strong> Driving range exhibits a strong linear relationship with battery pack capacity ($\approx 5.8\text{ km per kWh}$ across all segments).
+                </div>
+                <p>
+                    <strong>Segment Distribution:</strong>
+                </p>
+                <ul class="story-bullets">
+                    <li><strong>SUVs / Crossovers:</strong> Average 75 kWh battery packs, delivering 468 km WLTP range with 135 kW peak DC charging.</li>
+                    <li><strong>Sedans:</strong> Exhibit superior aerodynamic efficiency, achieving the highest average range (515 km) with moderate battery packs (78 kWh).</li>
+                    <li><strong>Hatchbacks:</strong> Target urban commuting with lighter 52 kWh packs, yielding 370 km range and 92 kW charging speeds.</li>
+                </ul>
+            </div>
+            <div class="scene-visual">
+                <div class="chart-wrapper-story">
+                    <canvas id="storyChart3"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 4: Strategic Recommendations -->
+    <div id="scene-4" class="story-scene-content card" style="display: none;">
+        <div class="scene-header">
+            <span class="scene-badge">Scene 4 of 4</span>
+            <h2>Strategic Recommendations & Sustainability Realities</h2>
+            <p class="scene-caption">
+                Translating empirical findings into actionable business strategy and evidence-based environmental policy.
+            </p>
+        </div>
+        <div class="scene-body-grid">
+            <div class="scene-narrative">
+                <h4>Recommendations by Stakeholder</h4>
+                <div class="recommendation-block">
+                    <h5>For Emily Johnson — Strategy Director</h5>
+                    <p>Prioritize C-segment SUVs and compact crossovers with 65–75 kWh battery packs. Avoid over-engineering battery packs beyond 100 kWh for passenger cars due to diminishing returns on mass and cost; instead, invest in 800V architectures and 150+ kW DC charging throughput.</p>
+                </div>
+                <div class="recommendation-block">
+                    <h5>For David Chen — BI Manager</h5>
+                    <p>Differentiate regional product launches: emerging markets (ASEAN, Latin America) require affordable hatchbacks with 300 km range, whereas North American and European premium tiers require 500+ km WLTP range and high towing capabilities.</p>
+                </div>
+                <div class="recommendation-block">
+                    <h5>For Dr. Sarah Williams — Sustainability Analyst</h5>
+                    <p>Oil displacement is already achieving substantial scale (>1.4 billion barrels equivalent annually). Energy policies must couple EV incentives with renewable grid capacity additions to maximize lifecycle decarbonization benefits.</p>
+                </div>
+            </div>
+            <div class="scene-visual">
+                <div class="chart-wrapper-story">
+                    <canvas id="storyChart4"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

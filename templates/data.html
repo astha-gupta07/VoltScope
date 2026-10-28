@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block title %}VoltScope — Data Catalog & Provenance{% endblock %}
+
+{% block content %}
+<div class="container page-container">
+    <div class="dashboard-header-block">
+        <div>
+            <div class="dashboard-badge">Data Governance & Provenance</div>
+            <h1 class="page-title">Dataset Sources, Schema & Data Quality Audit</h1>
+            <p class="page-subtitle">
+                Complete traceability documentation covering source publishers, open licensing, 
+                validation metrics, and live SQLite database records.
+            </p>
+        </div>
+    </div>
+
+    <!-- Data Sources Table -->
+    <section class="card mb-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">Authoritative Data Sources</h3>
+                <p class="card-subtitle">Public datasets ingested, processed, and preserved with zero synthetic values.</p>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Source Key</th>
+                        <th>Dataset Title</th>
+                        <th>Publisher</th>
+                        <th>License</th>
+                        <th>Ingested Records</th>
+                        <th>Retrieval Date</th>
+                        <th>Origin Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in sources %}
+                    <tr>
+                        <td><code>{{ s.source_key }}</code></td>
+                        <td><strong>{{ s.source_name }}</strong></td>
+                        <td>{{ s.publisher }}</td>
+                        <td><span class="badge badge-license">{{ s.license }}</span></td>
+                        <td class="font-mono">{{ "{:,}".format(s.record_count) }}</td>
+                        <td>{{ s.retrieval_date }}</td>
+                        <td><a href="{{ s.source_url }}" target="_blank" rel="noopener" class="card-link">Download URL ↗</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Data Quality & Audit Summary Cards -->
+    <section class="kpi-grid mb-6">
+        <div class="kpi-card">
+            <div class="kpi-label">Database Status</div>
+            <div class="kpi-value">SQLite 3</div>
+            <div class="kpi-subtext">PRAGMA foreign_keys = ON | 5 Custom Indexes</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Market Sales Records</div>
+            <div class="kpi-value">{{ "{:,}".format(table_counts.fact_ev_sales) }}</div>
+            <div class="kpi-subtext">56 Sovereign Countries + EU & World Aggregates</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">EV Model Specifications</div>
+            <div class="kpi-value">{{ "{:,}".format(table_counts.dim_vehicle_specs) }}</div>
+            <div class="kpi-subtext">Filtered strictly to electrified passenger models</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Fleet Sustainability Snapshots</div>
+            <div class="kpi-value">{{ "{:,}".format(table_counts.fact_fleet_impact) }}</div>
+            <div class="kpi-subtext">National oil displacement and electricity demand</div>
+        </div>
+    </section>
+
+    <!-- Tableau Extracts Download Directory Section -->
+    <section class="card mb-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">Generated Tableau Data Extracts (data/exports/tableau/)</h3>
+                <p class="card-subtitle">Pre-computed, clean CSV files ready for Tableau Desktop and Tableau Public ingestion.</p>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Extract Filename</th>
+                        <th>Grain</th>
+                        <th>Key Dimensions</th>
+                        <th>Target Visualizations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>tableau_ev_market_sales.csv</code></td>
+                        <td>Country + Month + Drivetrain</td>
+                        <td>Country, Continent, Month Date, Drivetrain</td>
+                        <td>Line chart sales trajectory, YoY growth, country rankings</td>
+                    </tr>
+                    <tr>
+                        <td><code>tableau_ev_fleet_sustainability.csv</code></td>
+                        <td>Country</td>
+                        <td>Country, ISO 3 Code, Latest Date</td>
+                        <td>Geographic displacement map, electricity demand comparison</td>
+                    </tr>
+                    <tr>
+                        <td><code>tableau_vehicle_specifications.csv</code></td>
+                        <td>Model Slug</td>
+                        <td>Brand, Model, Vehicle Category, Drivetrain Class</td>
+                        <td>Scatter plot (Battery vs Range), Category boxplot</td>
+                    </tr>
+                    <tr>
+                        <td><code>tableau_drivetrain_mix_annual.csv</code></td>
+                        <td>Year + Drivetrain</td>
+                        <td>Year, Drivetrain</td>
+                        <td>100% Stacked bar / area chart of powertrain mix</td>
+                    </tr>
+                    <tr>
+                        <td><code>tableau_top_markets_summary.csv</code></td>
+                        <td>Country</td>
+                        <td>Country, ISO 3 Code, Continent</td>
+                        <td>Top 10 leaderboard, executive KPI summary</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Sample Data Records Explorer -->
+    <section class="card mb-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">Live SQLite Data Preview: Recent EV Registrations (fact_ev_sales)</h3>
+                <p class="card-subtitle">Sample of the latest country-level monthly registration figures stored in SQLite.</p>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Month Date</th>
+                        <th>Drivetrain</th>
+                        <th>Registrations</th>
+                        <th>EV Market Share %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in sample_sales %}
+                    <tr>
+                        <td><strong>{{ row.area }}</strong></td>
+                        <td><code>{{ row.date }}</code></td>
+                        <td><span class="badge badge-drivetrain">{{ row.drivetrain }}</span></td>
+                        <td class="font-mono">{{ "{:,}".format(row.registrations|round|int) if row.registrations else 'N/A' }}</td>
+                        <td>{{ row.share_of_registrations_pct }}%</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Sample Model Specifications Explorer -->
+    <section class="card">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">Live SQLite Data Preview: EV Model Specifications (dim_vehicle_specs)</h3>
+                <p class="card-subtitle">Sample of certified electric vehicle models sorted by longest WLTP driving range.</p>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Model Name</th>
+                        <th>Vehicle Category</th>
+                        <th>Battery (kWh)</th>
+                        <th>WLTP Range (km)</th>
+                        <th>DC Fast Charge (kW)</th>
+                        <th>Efficiency (km/kWh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in sample_specs %}
+                    <tr>
+                        <td><strong>{{ row.brand }}</strong></td>
+                        <td>{{ row.model_name }}</td>
+                        <td><span class="badge badge-category">{{ row.body_category }}</span></td>
+                        <td class="font-mono">{{ row.battery_capacity_kwh }} kWh</td>
+                        <td class="font-mono font-bold">{{ row.range_wltp_km }} km</td>
+                        <td class="font-mono">{{ row.fast_charge_dc_kw }} kW</td>
+                        <td class="font-mono text-teal">{{ row.efficiency_km_per_kwh }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: voltscope
+    runtime: python
+    buildCommand: "pip install -r requirements.txt && python scripts/run_pipeline.py"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: TABLEAU_DASHBOARD_URL
+        value: ""
+      - key: TABLEAU_STORY_URL
+        value: ""

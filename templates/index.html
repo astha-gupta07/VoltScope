@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}VoltScope — Executive Summary & EV Market Performance{% endblock %}
+
+{% block content %}
+<div class="container page-container">
+    <!-- Hero Banner -->
+    <section class="hero-section">
+        <div class="hero-badge">Executive Market Intelligence</div>
+        <h1 class="hero-title">Electric Vehicle Market Performance & Insights</h1>
+        <p class="hero-subtitle">
+            An end-to-end data analytics system evaluating global EV sales velocity, powertrain transition, 
+            engineering specifications, and petroleum displacement across 56 countries and 160+ models.
+        </p>
+        <div class="hero-meta">
+            <span class="meta-item"><strong>Reporting Scope:</strong> 2005 – 2026 Monthly</span>
+            <span class="meta-item"><strong>Primary Sources:</strong> Ember Energy & autoseeker.eu</span>
+            <span class="meta-item"><strong>License:</strong> CC BY 4.0</span>
+        </div>
+        <div class="hero-actions">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Open Executive Dashboard →</a>
+            <a href="{{ url_for('story') }}" class="btn btn-secondary">Explore 4-Scene Story</a>
+            <a href="{{ url_for('data_catalog') }}" class="btn btn-outline">Inspect Data & Schema</a>
+        </div>
+    </section>
+
+    <!-- Top-Level Executive KPI Row -->
+    <section class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-label">Reported EV Sales (2025 Full Year)</div>
+            <div class="kpi-value">{{ "{:,}".format(kpis.total_ev_sales_2025) }}</div>
+            <div class="kpi-subtext">New BEV + PHEV passenger car registrations across surveyed sovereign markets</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Estimated Global EV Fleet</div>
+            <div class="kpi-value">{{ "{:,}".format(kpis.global_fleet_vehicles) }}</div>
+            <div class="kpi-subtext">Active cumulative electric vehicles in service worldwide</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Petroleum Displaced (Annual)</div>
+            <div class="kpi-value">{{ "{:,}".format(kpis.oil_displaced_barrels_yr) }} bbl</div>
+            <div class="kpi-subtext">${{ "{:,}".format(kpis.economic_value_usd_m) }}M economic energy savings annually</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Average EV Range & Battery</div>
+            <div class="kpi-value">{{ kpis.avg_range_km }} km</div>
+            <div class="kpi-subtext">{{ kpis.avg_battery_kwh }} kWh mean battery capacity ({{ kpis.avg_efficiency_km_kwh }} km/kWh efficiency)</div>
+        </div>
+    </section>
+
+    <!-- Two-Column Section: Leading Markets & Key Business Findings -->
+    <div class="dashboard-split-row">
+        <!-- Leading Markets Leaderboard -->
+        <div class="card flex-1">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Top Sovereign EV Markets (2025 Calendar Year)</h3>
+                    <p class="card-subtitle">Ranked by new electric vehicle registrations and average market penetration share.</p>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Country</th>
+                            <th>Continent</th>
+                            <th>2025 EV Sales</th>
+                            <th>EV Market Share %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in top_markets %}
+                        <tr>
+                            <td><span class="rank-badge">{{ loop.index }}</span></td>
+                            <td><strong>{{ row.country }}</strong> ({{ row.iso_3_code }})</td>
+                            <td>{{ row.continent }}</td>
+                            <td class="font-mono">{{ "{:,}".format(row.annual_ev_sales|round|int) }}</td>
+                            <td>
+                                <div class="progress-bar-cell">
+                                    <div class="progress-bar-fill" style="width: {{ [row.avg_market_share_pct, 100]|min }}%;"></div>
+                                    <span>{{ row.avg_market_share_pct }}%</span>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('dashboard') }}" class="card-link">View complete rankings in Dashboard →</a>
+            </div>
+        </div>
+
+        <!-- Strategic Stakeholder Alignment -->
+        <div class="card flex-1">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Stakeholder Scenario Analysis</h3>
+                    <p class="card-subtitle">Designed to answer key decisions for enterprise leadership and analysts.</p>
+                </div>
+            </div>
+            <div class="stakeholder-list">
+                <div class="stakeholder-item">
+                    <div class="stakeholder-tag tag-strategy">Emily Johnson — EV Market Strategy Director</div>
+                    <p class="stakeholder-text">
+                        <strong>Goal:</strong> Portfolio planning & segment growth. 
+                        <strong>Finding:</strong> SUVs and Crossovers represent >53% of all modern electric models, averaging 468 km WLTP range with 75 kWh battery packs.
+                    </p>
+                </div>
+                <div class="stakeholder-item">
+                    <div class="stakeholder-tag tag-bi">David Chen — Automotive BI Manager</div>
+                    <p class="stakeholder-text">
+                        <strong>Goal:</strong> Competitive positioning & market entry.
+                        <strong>Finding:</strong> Pure BEV adoption outpaced PHEVs by a 2.8:1 ratio in 2024–2025 across leading European and North American markets.
+                    </p>
+                </div>
+                <div class="stakeholder-item">
+                    <div class="stakeholder-tag tag-research">Dr. Sarah Williams — Sustainable Mobility Analyst</div>
+                    <p class="stakeholder-text">
+                        <strong>Goal:</strong> Energy grid impact & decarbonization.
+                        <strong>Finding:</strong> Global active EV fleet displaced over 1.4 million barrels of oil equivalent per year, requiring 60+ TWh of annual grid integration.
+                    </p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('about') }}" class="card-link">Read full stakeholder methodologies →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Architecture & Flow -->
+    <section class="card mt-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">VoltScope End-to-End Technical Architecture</h3>
+                <p class="card-subtitle">How raw data is ingested, validated, stored in SQLite, and delivered to Tableau and Flask.</p>
+            </div>
+        </div>
+        <div class="architecture-diagram">
+            <div class="arch-node">
+                <div class="arch-badge">Data Layer</div>
+                <div class="arch-title">Raw Sources</div>
+                <div class="arch-desc">Ember Energy (46.5k rows)<br>autoseeker Open Specs (CC BY 4.0)</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">
+                <div class="arch-badge">Pipeline</div>
+                <div class="arch-title">Python Ingestion</div>
+                <div class="arch-desc">Pandas validation, typing, normalization & anomaly audit</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">
+                <div class="arch-badge">Database</div>
+                <div class="arch-title">SQLite (12.4 MB)</div>
+                <div class="arch-desc">Relational facts, dimensions, indexes & 6 SQL views</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">
+                <div class="arch-badge">BI & Analytics</div>
+                <div class="arch-title">Tableau & Extracts</div>
+                <div class="arch-desc">5 Clean CSV Extracts<br>6 Visualizations & 4-Scene Story</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node highlight">
+                <div class="arch-badge">Presentation</div>
+                <div class="arch-title">Flask Web App</div>
+                <div class="arch-desc">Tableau Embedding API v3<br>+ Native Chart.js Fallback</div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

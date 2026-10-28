@@ -1,0 +1,63 @@
+{
+  "validation_timestamp": "2026-10-26T23:20:32.463332",
+  "results": {
+    "ember_monthly_sales": {
+      "dataset": "Ember Monthly EV Sales",
+      "passed": true,
+      "total_rows": 46598,
+      "total_columns": 24,
+      "missing_expected_columns": [],
+      "invalid_dates": 0,
+      "negative_registrations": 0,
+      "duplicate_natural_keys": 0,
+      "null_counts": {
+        "Area": 0,
+        "ISO 3 code": 1005,
+        "Area type": 0,
+        "Date": 0,
+        "Drivetrain": 0,
+        "Is aggregate drivetrain": 0,
+        "Registrations": 388
+      },
+      "distinct_areas": 61,
+      "date_range": [
+        "2005-01-01",
+        "2026-09-01"
+      ],
+      "drivetrains": [
+        "Battery electric",
+        "Plug-in hybrid",
+        "Hybrid",
+        "Petrol",
+        "Diesel",
+        "Other",
+        "Electric vehicle (BEV+PHEV)",
+        "All drivetrains",
+        "Ethanol/petrol blend",
+        "Combustion (unspecified)"
+      ]
+    },
+    "ember_fleet_impact": {
+      "dataset": "Ember EV Fleet & Oil Displacement Impact",
+      "passed": true,
+      "total_rows": 61,
+      "total_columns": 9,
+      "missing_expected_columns": [],
+      "duplicate_areas": 0,
+      "negative_fleet_values": 0,
+      "areas_covered": 61
+    },
+    "autoseeker_models": {
+      "dataset": "autoseeker Open Car Specifications",
+      "passed": true,
+      "total_rows": 281,
+      "ev_phev_models_found": 166,
+      "missing_expected_columns": [],
+      "duplicate_slugs": 0,
+      "invalid_wltp_range_count": 0,
+      "invalid_battery_kwh_count": 0,
+      "distinct_brands": 50
+    }
+  },
+  "overall_passed": true
+}
