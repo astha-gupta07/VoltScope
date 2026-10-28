@@ -26,6 +26,11 @@ app.config["SECRET_KEY"] = SECRET_KEY
 
 def get_db_connection() -> sqlite3.Connection:
     """Create a thread-safe connection to the SQLite database."""
+    if not Path(DATABASE_FILE).exists():
+        raise RuntimeError(
+            f"Database not found at {DATABASE_FILE}. "
+            "Run: python scripts/run_pipeline.py"
+        )
     conn = sqlite3.connect(DATABASE_FILE)
     conn.row_factory = sqlite3.Row
     return conn
@@ -49,43 +54,60 @@ def inject_global_settings():
 @app.route("/")
 def index():
     """Home / Executive Summary page with high-level KPIs and findings."""
-    conn = get_db_connection()
+    # Default empty KPIs shown if database not yet built
+    kpi_data = {
+        "total_ev_sales_2025": 0,
+        "global_fleet_vehicles": 0,
+        "oil_displaced_barrels_yr": 0,
+        "economic_value_usd_m": 0,
+        "avg_range_km": 0,
+        "avg_battery_kwh": 0,
+        "avg_efficiency_km_kwh": 0,
+        "countries_covered": 0
+    }
+    top_markets = []
+    db_ready = False
+
     try:
-        # High-level KPIs
-        global_fleet = conn.execute(
-            "SELECT ev_fleet_vehicles, oil_displaced_kbd_yr, oil_displaced_usd_million_yr FROM fact_fleet_impact WHERE area = 'World';"
-        ).fetchone()
-        
-        latest_sales = conn.execute(
-            "SELECT SUM(registrations) FROM fact_ev_sales WHERE is_country = 1 AND year = 2025 AND drivetrain = 'Electric vehicle (BEV+PHEV)';"
-        ).fetchone()[0] or 0
-        
-        avg_specs = conn.execute(
-            "SELECT AVG(range_wltp_km), AVG(battery_capacity_kwh), AVG(efficiency_km_per_kwh) FROM dim_vehicle_specs WHERE range_wltp_km > 0;"
-        ).fetchone()
-        
-        countries_count = conn.execute(
-            "SELECT COUNT(DISTINCT area) FROM fact_ev_sales WHERE is_country = 1;"
-        ).fetchone()[0] or 0
-        
-        top_markets = conn.execute(
-            "SELECT country, annual_ev_sales, avg_market_share_pct FROM v_top_ev_markets_latest_year LIMIT 5;"
-        ).fetchall()
-        
-        kpi_data = {
-            "total_ev_sales_2025": round(latest_sales),
-            "global_fleet_vehicles": round(global_fleet["ev_fleet_vehicles"]) if global_fleet else 0,
-            "oil_displaced_barrels_yr": round(global_fleet["oil_displaced_kbd_yr"] * 1000) if global_fleet else 0,
-            "economic_value_usd_m": round(global_fleet["oil_displaced_usd_million_yr"]) if global_fleet else 0,
-            "avg_range_km": round(avg_specs[0], 1) if avg_specs[0] else 0,
-            "avg_battery_kwh": round(avg_specs[1], 1) if avg_specs[1] else 0,
-            "avg_efficiency_km_kwh": round(avg_specs[2], 2) if avg_specs[2] else 0,
-            "countries_covered": countries_count
-        }
-        
-        return render_template("index.html", kpis=kpi_data, top_markets=top_markets)
-    finally:
-        conn.close()
+        conn = get_db_connection()
+        try:
+            global_fleet = conn.execute(
+                "SELECT ev_fleet_vehicles, oil_displaced_kbd_yr, oil_displaced_usd_million_yr FROM fact_fleet_impact WHERE area = 'World';"
+            ).fetchone()
+
+            latest_sales = conn.execute(
+                "SELECT SUM(registrations) FROM fact_ev_sales WHERE is_country = 1 AND year = 2025 AND drivetrain = 'Electric vehicle (BEV+PHEV)';"
+            ).fetchone()[0] or 0
+
+            avg_specs = conn.execute(
+                "SELECT AVG(range_wltp_km), AVG(battery_capacity_kwh), AVG(efficiency_km_per_kwh) FROM dim_vehicle_specs WHERE range_wltp_km > 0;"
+            ).fetchone()
+
+            countries_count = conn.execute(
+                "SELECT COUNT(DISTINCT area) FROM fact_ev_sales WHERE is_country = 1;"
+            ).fetchone()[0] or 0
+
+            top_markets = conn.execute(
+                "SELECT country, annual_ev_sales, avg_market_share_pct FROM v_top_ev_markets_latest_year LIMIT 5;"
+            ).fetchall()
+
+            kpi_data = {
+                "total_ev_sales_2025": round(latest_sales),
+                "global_fleet_vehicles": round(global_fleet["ev_fleet_vehicles"]) if global_fleet else 0,
+                "oil_displaced_barrels_yr": round(global_fleet["oil_displaced_kbd_yr"] * 1000) if global_fleet else 0,
+                "economic_value_usd_m": round(global_fleet["oil_displaced_usd_million_yr"]) if global_fleet else 0,
+                "avg_range_km": round(avg_specs[0], 1) if avg_specs[0] else 0,
+                "avg_battery_kwh": round(avg_specs[1], 1) if avg_specs[1] else 0,
+                "avg_efficiency_km_kwh": round(avg_specs[2], 2) if avg_specs[2] else 0,
+                "countries_covered": countries_count
+            }
+            db_ready = True
+        finally:
+            conn.close()
+    except Exception as e:
+        app.logger.warning(f"Database not ready, serving empty KPIs: {e}")
+
+    return render_template("index.html", kpis=kpi_data, top_markets=top_markets, db_ready=db_ready)
 
 
 @app.route("/dashboard")
@@ -103,44 +125,56 @@ def story():
 @app.route("/data")
 def data_catalog():
     """Dataset catalog, data quality report, and SQLite database explorer."""
-    conn = get_db_connection()
+    sources = []
+    dq_report = {}
+    table_counts = {"fact_ev_sales": 0, "fact_fleet_impact": 0, "dim_vehicle_specs": 0}
+    sample_sales = []
+    sample_specs = []
+    db_ready = False
+
     try:
-        sources = conn.execute("SELECT * FROM dataset_sources ORDER BY source_key;").fetchall()
-        
-        # Load data quality report if exists
-        dq_file = PROCESSED_DATA_DIR / "data_quality_report.json"
-        dq_report = {}
-        if dq_file.exists():
-            with open(dq_file, "r", encoding="utf-8") as f:
-                dq_report = json.load(f)
-                
-        # Table stats
-        table_counts = {
-            "fact_ev_sales": conn.execute("SELECT COUNT(*) FROM fact_ev_sales;").fetchone()[0],
-            "fact_fleet_impact": conn.execute("SELECT COUNT(*) FROM fact_fleet_impact;").fetchone()[0],
-            "dim_vehicle_specs": conn.execute("SELECT COUNT(*) FROM dim_vehicle_specs;").fetchone()[0]
-        }
-        
-        # Sample records from fact_ev_sales
-        sample_sales = conn.execute(
-            "SELECT area, date, drivetrain, registrations, share_of_registrations_pct FROM fact_ev_sales WHERE is_country = 1 ORDER BY date DESC, registrations DESC LIMIT 10;"
-        ).fetchall()
-        
-        # Sample records from dim_vehicle_specs
-        sample_specs = conn.execute(
-            "SELECT brand, model_name, body_category, battery_capacity_kwh, range_wltp_km, fast_charge_dc_kw, efficiency_km_per_kwh FROM dim_vehicle_specs WHERE range_wltp_km > 0 ORDER BY range_wltp_km DESC LIMIT 10;"
-        ).fetchall()
-        
-        return render_template(
-            "data.html",
-            sources=sources,
-            dq_report=dq_report,
-            table_counts=table_counts,
-            sample_sales=sample_sales,
-            sample_specs=sample_specs
-        )
-    finally:
-        conn.close()
+        conn = get_db_connection()
+        try:
+            sources = conn.execute("SELECT * FROM dataset_sources ORDER BY source_key;").fetchall()
+
+            # Load data quality report if exists
+            dq_file = PROCESSED_DATA_DIR / "data_quality_report.json"
+            if dq_file.exists():
+                with open(dq_file, "r", encoding="utf-8") as f:
+                    dq_report = json.load(f)
+
+            # Table stats
+            table_counts = {
+                "fact_ev_sales": conn.execute("SELECT COUNT(*) FROM fact_ev_sales;").fetchone()[0],
+                "fact_fleet_impact": conn.execute("SELECT COUNT(*) FROM fact_fleet_impact;").fetchone()[0],
+                "dim_vehicle_specs": conn.execute("SELECT COUNT(*) FROM dim_vehicle_specs;").fetchone()[0]
+            }
+
+            # Sample records from fact_ev_sales
+            sample_sales = conn.execute(
+                "SELECT area, date, drivetrain, registrations, share_of_registrations_pct FROM fact_ev_sales WHERE is_country = 1 ORDER BY date DESC, registrations DESC LIMIT 10;"
+            ).fetchall()
+
+            # Sample records from dim_vehicle_specs
+            sample_specs = conn.execute(
+                "SELECT brand, model_name, body_category, battery_capacity_kwh, range_wltp_km, fast_charge_dc_kw, efficiency_km_per_kwh FROM dim_vehicle_specs WHERE range_wltp_km > 0 ORDER BY range_wltp_km DESC LIMIT 10;"
+            ).fetchall()
+
+            db_ready = True
+        finally:
+            conn.close()
+    except Exception as e:
+        app.logger.warning(f"Database not ready for /data page: {e}")
+
+    return render_template(
+        "data.html",
+        sources=sources,
+        dq_report=dq_report,
+        table_counts=table_counts,
+        sample_sales=sample_sales,
+        sample_specs=sample_specs,
+        db_ready=db_ready
+    )
 
 
 @app.route("/about")
@@ -262,5 +296,5 @@ def api_sustainability():
 
 
 if __name__ == "__main__":
-    print(f"[*] Starting VoltScope Web Server on http://127.0.0.1:{PORT}")
-    app.run(host="127.0.0.1", port=PORT, debug=DEBUG)
+    print(f"[*] Starting VoltScope Web Server on http://0.0.0.0:{PORT}")
+    app.run(host="0.0.0.0", port=PORT, debug=DEBUG)
